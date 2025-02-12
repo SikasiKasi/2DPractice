@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
@@ -33,9 +35,10 @@ public class Player : MonoBehaviour
 
         
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * this.speed;
+        float y = Input.GetAxisRaw("Vertical") * Time.deltaTime * this.speed;
 
-        transform.Translate(new Vector3(x, y) * Time.deltaTime * this.speed);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x + x, -2.25f, 2.25f),
+                                         Mathf.Clamp(transform.position.y + y, -4.7f, 4.7f));
     }
 }
