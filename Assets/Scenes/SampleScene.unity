@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85e446c11595e549937d827945bd7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuleltPrefab: {fileID: 3137333547692649132, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
 --- !u!212 &663291640
 SpriteRenderer:
   m_ObjectHideFlags: 0

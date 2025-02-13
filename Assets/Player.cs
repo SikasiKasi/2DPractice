@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
+    public GameObject BuleltPrefab;
+    private int BulletCount = 0;
     private float speed = 3.0f;
 
     //Speedプロパティ
@@ -25,7 +27,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space)){
             Debug.Log("ダッシュボタン");
             this.dash = !this.dash;
 
@@ -33,7 +35,16 @@ public class Player : MonoBehaviour
             else this.speed = 3.0f;
         }
 
-        
+        //Bullet発射
+        if(Input.GetKey(KeyCode.Q)){
+            Debug.Log(this.BulletCount);
+            if(this.BulletCount == 0 || this.BulletCount == 30){
+                Instantiate(this.BuleltPrefab, transform.position, Quaternion.identity);
+            }
+            this.BulletCount = (this.BulletCount + 1) % 31;
+        } else {
+            this.BulletCount = 0;
+        }
 
         float x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * this.speed;
         float y = Input.GetAxisRaw("Vertical") * Time.deltaTime * this.speed;
