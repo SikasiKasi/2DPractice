@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.Q)){
             Debug.Log(this.BulletCount);
             if(this.BulletCount == 0 || this.BulletCount == 30){
-                Instantiate(this.BuleltPrefab, transform.position, Quaternion.identity);
+                Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
             }
             this.BulletCount = (this.BulletCount + 1) % 31;
         } else {
