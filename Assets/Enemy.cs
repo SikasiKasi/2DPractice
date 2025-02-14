@@ -9,6 +9,13 @@ public class Enemy : MonoBehaviour
         get { return speed; }
         private set { speed = value; }
     }
+
+    private int hp = 1;
+    public int Hp {
+        get { return this.hp; }
+        private set { this.hp = value; }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +30,12 @@ public class Enemy : MonoBehaviour
         if(transform.position.y < -6.0){
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("衝突");
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
     }
 }
