@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
         get { return this.hp; }
         private set { this.hp = value; }
     }
+    private bool Right = false;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,20 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, this.Speed * Time.deltaTime, 0);
+        if(transform.position.y > 4){
+            transform.Translate(0, this.Speed * Time.deltaTime, 0);
+        } else {
+            if(this.Right){
+                Debug.Log("右");
+                transform.Translate(-this.Speed * Time.deltaTime, 0, 0);
+            } else {
+                Debug.Log("左");
+                transform.Translate(this.Speed * Time.deltaTime, 0, 0);
+            }
+        }
+        
+        if(transform.position.x > 2.25) this.Right = false;
+        else if(transform.position.x < -2.25) this.Right = true;
 
         if(transform.position.y < -6.0){
             Destroy(gameObject);

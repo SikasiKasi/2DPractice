@@ -14,7 +14,8 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("GenEnemy", 1, 1);
+        //InvokeRepeating("GenEnemy", 1, 1);
+        GenEnemy();
     }
 
     // Update is called once per frame
@@ -25,6 +26,6 @@ public class EnemyGenerator : MonoBehaviour
 
     void GenEnemy() 
     {
-        Instantiate(EnemyPrefab, new Vector3(-2.5f + 5 * Random.value, 6, 0), Quaternion.Euler(0f, 0f, 180f));
+        Instantiate(EnemyPrefab, new Vector3(0, 6, 0), Quaternion.Euler(0f, 0f, 180f));
     }
 }
