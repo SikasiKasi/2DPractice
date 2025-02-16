@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a305dccdc4c03d479ac310420d68539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuleltPrefab: {fileID: 3137333547692649132, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
 --- !u!58 &-4192158670679922184
 CircleCollider2D:
   m_ObjectHideFlags: 0

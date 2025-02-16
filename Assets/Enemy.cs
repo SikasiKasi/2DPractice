@@ -11,11 +11,13 @@ public class Enemy : MonoBehaviour
     }
 
     private int hp = 1;
+    private int BulletCount = 0;
     public int Hp {
         get { return this.hp; }
         private set { this.hp = value; }
     }
     private bool Right = false;
+    public GameObject BuleltPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,15 @@ public class Enemy : MonoBehaviour
         
         if(transform.position.x > 2.25) this.Right = false;
         else if(transform.position.x < -2.25) this.Right = true;
+
+        //弾発射
+        if(this.BulletCount == 30){
+            Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0f, 0f, 180f));
+            this.BulletCount = (this.BulletCount + 1) % 31;
+        } else {
+            this.BulletCount = (this.BulletCount + 1) % 31;
+        }
+        
 
         if(transform.position.y < -6.0){
             Destroy(gameObject);
