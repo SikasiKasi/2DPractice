@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GameObject BuleltPrefab;
     private int BulletCount = 0;
     private float speed = 3.0f;
+    private int hp = 10;
 
     //Speedプロパティ
     public float Speed {
@@ -56,6 +57,23 @@ public class Player : MonoBehaviour
     //自機との衝突
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        var blinker = GetComponent<RendererOnOff>();
+        
+        //点滅中は無敵
+        if(!blinker.IsBlinking){
+            this.hp--;
+            Debug.Log("被弾 : 残りHP " + this.hp);
+            
+            if(this.hp == 0){
+                Debug.Log("撃墜");
+                Destroy(gameObject);
+            } else {
+                //点滅させる
+                blinker.BeginBlink();
+            }
+        } else {
+            Debug.Log("無敵時間");
+        }
+        
     }
 }
