@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         get { return this.hp; }
         private set { this.hp = value; }
     }
-    private bool Right = false;
+    
     public GameObject BuleltPrefab;
     
     // Start is called before the first frame update
@@ -30,18 +30,7 @@ public class Enemy : MonoBehaviour
     {
         if(transform.position.y > 4){
             transform.Translate(0, this.Speed * Time.deltaTime, 0);
-        } else {
-            if(this.Right){
-                Debug.Log("右");
-                transform.Translate(-this.Speed * Time.deltaTime, 0, 0);
-            } else {
-                Debug.Log("左");
-                transform.Translate(this.Speed * Time.deltaTime, 0, 0);
-            }
         }
-        
-        if(transform.position.x > 2.25) this.Right = false;
-        else if(transform.position.x < -2.25) this.Right = true;
 
         //弾発射
         if(this.BulletCount == 120){
