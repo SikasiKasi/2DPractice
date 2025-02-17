@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
         private set { speed = value; }
     }
 
-    private int hp = 1;
+    private int hp = 5;
     private int BulletCount = 0;
     public int Hp {
         get { return this.hp; }
@@ -44,11 +44,11 @@ public class Enemy : MonoBehaviour
         else if(transform.position.x < -2.25) this.Right = true;
 
         //弾発射
-        if(this.BulletCount == 30){
+        if(this.BulletCount == 120){
             Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0f, 0f, 180f));
-            this.BulletCount = (this.BulletCount + 1) % 31;
+            this.BulletCount = (this.BulletCount + 1) % 121;
         } else {
-            this.BulletCount = (this.BulletCount + 1) % 31;
+            this.BulletCount = (this.BulletCount + 1) % 121;
         }
         
 
@@ -61,6 +61,10 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("衝突");
         Destroy(collision.gameObject);
-        Destroy(gameObject);
+        this.Hp--;
+        if(this.Hp == 0){
+            Destroy(gameObject);
+        }
+        
     }
 }
