@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject EnemyPrefab;
-    private int hp = 1;
 
     // Start is called before the first frame update
     void Start()

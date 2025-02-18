@@ -30,7 +30,11 @@ public class Enemy : MonoBehaviour
 
         //弾発射
         if(this.BulletCount == 120){
-            Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0f, 0f, 180f));
+            //3方向に発射
+            Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 180));
+            Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 225));
+            Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 135));
+
             this.BulletCount = (this.BulletCount + 1) % 121;
         } else {
             this.BulletCount = (this.BulletCount + 1) % 121;
