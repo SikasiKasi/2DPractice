@@ -8,10 +8,9 @@ public class Player : MonoBehaviour
 {
     public GameObject BuleltPrefab;
     private int BulletCount = 0;
-    private float speed = 3.0f;
+    private float speed = 6.0f;
     private int hp = 10;
 
-    private bool dash = false;
     
     // Start is called before the first frame update
     void Start()
@@ -22,13 +21,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("ダッシュボタン");
-            this.dash = !this.dash;
-
-            if(this.dash) this.speed = 6.0f;
-            else this.speed = 3.0f;
-        }
 
         //Bullet発射
         if(Input.GetKey(KeyCode.Q)){
@@ -44,8 +36,8 @@ public class Player : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * this.speed;
         float y = Input.GetAxisRaw("Vertical") * Time.deltaTime * this.speed;
 
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x + x, -2.25f, 2.25f),
-                                         Mathf.Clamp(transform.position.y + y, -4.7f, 4.7f));
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x + x, -3.8f, 3.8f),
+                                         Mathf.Clamp(transform.position.y + y, -7.7f, 7.7f));
     }
 
     //自機との衝突

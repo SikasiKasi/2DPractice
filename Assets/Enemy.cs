@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y > 4){
+        if(transform.position.y > 6.5){
             transform.Translate(0, this.speed * Time.deltaTime, 0);
         }
 

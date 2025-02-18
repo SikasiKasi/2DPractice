@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(0, this.speed * Time.deltaTime, 0);
 
-        if(transform.position.y > 6.0 || transform.position.y < -6.0){
+        if(transform.position.y > 8.0 || transform.position.y < -8.0){
             Destroy(gameObject);
         }
     }
