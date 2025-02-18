@@ -5,10 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private float speed = 3.0f;
-    public float Speed {
-        get { return speed; }
-        private set { speed = value; }
-    }
 
     private int hp = 5;
     private int BulletCount = 0;
@@ -29,7 +25,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if(transform.position.y > 4){
-            transform.Translate(0, this.Speed * Time.deltaTime, 0);
+            transform.Translate(0, this.speed * Time.deltaTime, 0);
         }
 
         //弾発射

@@ -6,10 +6,6 @@ public class EnemyGenerator : MonoBehaviour
 {
     public GameObject EnemyPrefab;
     private int hp = 1;
-    public int Hp {
-        get { return this.hp; }
-        private set { this.hp = value; }
-    }
 
     // Start is called before the first frame update
     void Start()

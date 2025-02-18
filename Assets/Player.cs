@@ -11,12 +11,6 @@ public class Player : MonoBehaviour
     private float speed = 3.0f;
     private int hp = 10;
 
-    //Speedプロパティ
-    public float Speed {
-        get { return this.speed; }
-        private set { this.speed = value; }
-    }
-
     private bool dash = false;
     
     // Start is called before the first frame update
@@ -32,7 +26,7 @@ public class Player : MonoBehaviour
             Debug.Log("ダッシュボタン");
             this.dash = !this.dash;
 
-            if(this.dash) this.Speed = 6.0f;
+            if(this.dash) this.speed = 6.0f;
             else this.speed = 3.0f;
         }
 
