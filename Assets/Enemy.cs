@@ -8,10 +8,6 @@ public class Enemy : MonoBehaviour
 
     private int hp = 5;
     private int BulletCount = 0;
-    public int Hp {
-        get { return this.hp; }
-        private set { this.hp = value; }
-    }
     
     public GameObject BuleltPrefab;
     
@@ -50,8 +46,9 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("衝突");
         Destroy(collision.gameObject);
-        this.Hp--;
-        if(this.Hp == 0){
+        this.hp--;
+        if(this.hp == 0){
+
             Destroy(gameObject);
         }
         
