@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private int hp = 5;
     private int BulletCount = 0;
     
-    public GameObject BuleltPrefab;
+    [SerializeField] private GameObject BuleltPrefab;
     [SerializeField] private BulletManager bulletManager;
     
     // Start is called before the first frame update

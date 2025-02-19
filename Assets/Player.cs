@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
-    public Bullet BuleltPrefab;
+    [SerializeField] private Bullet BuleltPrefab;
     private int BulletCount = 0;
     private float speed = 6.0f;
     private int hp = 10;

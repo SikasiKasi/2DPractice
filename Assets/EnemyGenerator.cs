@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    [SerializeField] private GameObject EnemyPrefab;
     //倒した敵の数
     private int counter = 0;
     [SerializeField] private BulletManager bulletManager;

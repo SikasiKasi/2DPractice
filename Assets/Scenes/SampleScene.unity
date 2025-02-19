@@ -374,7 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85e446c11595e549937d827945bd7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuleltPrefab: {fileID: 3137333547692649132, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
+  BuleltPrefab: {fileID: 7784704192924079180, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
+  bulletManager: {fileID: 963570350}
 --- !u!212 &663291640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -558,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 4206786358230006611, guid: be1e02e7425d4544e9577d2e662cf703, type: 3}
+  bulletManager: {fileID: 963570350}
 --- !u!4 &711774878
 Transform:
   m_ObjectHideFlags: 0
@@ -573,7 +575,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1967070559
+--- !u!1 &963570349
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,38 +583,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1967070561}
-  - component: {fileID: 1967070560}
+  - component: {fileID: 963570351}
+  - component: {fileID: 963570350}
   m_Layer: 0
-  m_Name: BulletManager
+  m_Name: 'BulletManager '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1967070560
+--- !u!114 &963570350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967070559}
+  m_GameObject: {fileID: 963570349}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c02044ae9905b4f4fa76b04529e25756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3137333547692649132, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
---- !u!4 &1967070561
+--- !u!4 &963570351
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967070559}
+  m_GameObject: {fileID: 963570349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6007514, y: 1.4530364, z: -0.04221003}
+  m_LocalPosition: {x: 2.6007514, y: 9.13, z: -0.04221003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,4 +628,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 663291641}
   - {fileID: 711774878}
-  - {fileID: 1967070561}
+  - {fileID: 963570351}
