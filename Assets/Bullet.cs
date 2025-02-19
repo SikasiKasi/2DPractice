@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private float speed = 7.0f;
+    [SerializeField] private BulletManager bulletManager;
     
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,15 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(0, this.speed * Time.deltaTime, 0);
 
-        if(transform.position.y > 8.0 || transform.position.y < -8.0){
-            Destroy(gameObject);
+        if(transform.position.y > 8.0 || transform.position.y < -8.0 || transform.position.x > 4.0 || transform.position.x < -4.0){
+            bulletManager.DelBullet(gameObject);
+            //gameObject.SetActive(false);
         }
+    }
+
+    public void SetUp(BulletManager manager)
+    {
+        bulletManager = manager;
     }
 
     

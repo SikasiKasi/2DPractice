@@ -11,7 +11,15 @@ public class BulletManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pool = new ObjectPool<GameObject>(
+            OnCreatePoolObject, //生成
+            OnTakeFromPool,     //プールから取得
+            OnReturnedToPool,   //返却
+            OnDestroyPoolObject,//許容量オーバー時の処理
+            false,              //既にプールにあるオブジェクトを追加した場合例外とするか否か(?)
+            10,                 //初期許容量
+            100                 //最大許容量
+        );
     }
 
     //ObjectPoolコンストラクタの1つ目の引数
@@ -20,6 +28,11 @@ public class BulletManager : MonoBehaviour
     GameObject OnCreatePoolObject()
     {
         GameObject o = Instantiate(BulletPrefab);
+        //GetComprnentでBulletのスクリプト取得
+        Bullet bullet = o.GetComponent<Bullet>();
+        //SetUp(フィールドのbulletManagerにセットするだけ)を呼び出し
+        bullet.SetUp(this);
+        //o.transform.parent = this.transform;
         return o;
     }
 
@@ -29,6 +42,8 @@ public class BulletManager : MonoBehaviour
     void OnTakeFromPool(GameObject target)
     {
         target.SetActive(true);
+        //生成時は角度をリセットしておく(敵もこれを使うので)
+        target.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     //コンストラクタ3つ目の引数

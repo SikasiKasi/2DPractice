@@ -6,10 +6,11 @@ using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
-    public GameObject BuleltPrefab;
+    public Bullet BuleltPrefab;
     private int BulletCount = 0;
     private float speed = 6.0f;
     private int hp = 10;
+    [SerializeField] private BulletManager bulletManager;
 
     
     // Start is called before the first frame update
@@ -24,9 +25,10 @@ public class Player : MonoBehaviour
 
         //Bullet発射
         if(Input.GetKey(KeyCode.Q)){
-            Debug.Log(this.BulletCount);
+            //Debug.Log(this.BulletCount);
             if(this.BulletCount == 0 || this.BulletCount == 30){
-                Instantiate(this.BuleltPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                GameObject bullet = bulletManager.GetBullet();
+                bullet.transform.position = transform.position + new Vector3(0, 0.5f, 0);
             }
             this.BulletCount = (this.BulletCount + 1) % 31;
         } else {
