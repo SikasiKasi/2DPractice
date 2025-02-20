@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     private float speed = 3.0f;
 
     private int hp = 5;
-    private int BulletCount = 0;
+    private int angle = 0;
     
     [SerializeField] private GameObject BuleltPrefab;
     [SerializeField] private BulletManager bulletManager;
@@ -25,35 +25,21 @@ public class Enemy : MonoBehaviour
         if(transform.position.y > 6.5){
             transform.Translate(0, this.speed * Time.deltaTime, 0);
         }
+    }
 
+    //弾発射は一定間隔で
+    void FixedUpdate()
+    {
         //弾発射
-        if(this.BulletCount == 120){
-            //3方向に発射
-            //Enemy側のオブジェクトプールによる発射
-            GameObject bullet = bulletManager.GetBullet();
-            bullet.layer = LayerMask.NameToLayer("Player");
-            bullet.transform.position = transform.position;
-            bullet.transform.eulerAngles = new Vector3(0, 0, 180); 
+        //3方向に発射
+        //Enemy側のオブジェクトプールによる発射
+        GameObject bullet;
+        bullet = bulletManager.GetBullet();
+        bullet.layer = LayerMask.NameToLayer("Player");
+        bullet.transform.position = transform.position;
+        bullet.transform.eulerAngles = new Vector3(0, 0, angle); 
 
-            bullet = bulletManager.GetBullet();
-            bullet.layer = LayerMask.NameToLayer("Player");
-            bullet.transform.position = transform.position;
-            bullet.transform.eulerAngles = new Vector3(0, 0, 225); 
-
-            bullet = bulletManager.GetBullet();
-            bullet.layer = LayerMask.NameToLayer("Player");
-            bullet.transform.position = transform.position;
-            bullet.transform.eulerAngles = new Vector3(0, 0, 135); 
-
-            this.BulletCount = (this.BulletCount + 1) % 121;
-        } else {
-            this.BulletCount = (this.BulletCount + 1) % 121;
-        }
-        
-
-        if(transform.position.y < -6.0){
-            Destroy(gameObject);
-        }
+        angle = (angle + 10) % 360;        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
