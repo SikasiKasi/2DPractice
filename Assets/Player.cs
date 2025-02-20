@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
             //Debug.Log(this.BulletCount);
             if(this.BulletCount == 0 || this.BulletCount == 30){
                 GameObject bullet = bulletManager.GetBullet();
-                bullet.transform.position = transform.position + new Vector3(0, 0.5f, 0);
+                bullet.layer = LayerMask.NameToLayer("Enemy");
+                bullet.transform.position = transform.position;
             }
             this.BulletCount = (this.BulletCount + 1) % 31;
         } else {

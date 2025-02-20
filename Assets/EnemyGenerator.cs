@@ -32,6 +32,7 @@ public class EnemyGenerator : MonoBehaviour
                 Enemy enemy = o.GetComponent<Enemy>();
                 //SetUp(フィールドのbulletManagerにセットするだけ)を呼び出し
                 enemy.SetUp(bulletManager);
+                enemy.SetLayer("Enemy");
                 //出現位置調整
                 enemy.transform.position = new Vector3(0, 9, 0);
                 enemy.transform.eulerAngles = new Vector3(0, 0, 180);

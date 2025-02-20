@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4305195558330333669}
   - component: {fileID: -4192158670679922184}
   - component: {fileID: 2283474960120759708}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuleltPrefab: {fileID: 3137333547692649132, guid: 178e1155dc7a27f48819fa99711de856, type: 3}
+  bulletManager: {fileID: 0}
 --- !u!58 &-4192158670679922184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,9 +133,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!50 &2283474960120759708
 Rigidbody2D:
   serializedVersion: 4

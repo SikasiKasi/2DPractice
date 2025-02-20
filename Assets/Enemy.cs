@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,15 +31,18 @@ public class Enemy : MonoBehaviour
             //3方向に発射
             //Enemy側のオブジェクトプールによる発射
             GameObject bullet = bulletManager.GetBullet();
-            bullet.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+            bullet.layer = LayerMask.NameToLayer("Player");
+            bullet.transform.position = transform.position;
             bullet.transform.eulerAngles = new Vector3(0, 0, 180); 
 
             bullet = bulletManager.GetBullet();
-            bullet.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+            bullet.layer = LayerMask.NameToLayer("Player");
+            bullet.transform.position = transform.position;
             bullet.transform.eulerAngles = new Vector3(0, 0, 225); 
 
             bullet = bulletManager.GetBullet();
-            bullet.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+            bullet.layer = LayerMask.NameToLayer("Player");
+            bullet.transform.position = transform.position;
             bullet.transform.eulerAngles = new Vector3(0, 0, 135); 
 
             this.BulletCount = (this.BulletCount + 1) % 121;
@@ -67,5 +71,10 @@ public class Enemy : MonoBehaviour
     public void SetUp(BulletManager manager)
     {
         bulletManager = manager;
+    }
+
+    public void SetLayer(String layerName)
+    {
+        gameObject.layer = LayerMask.NameToLayer(layerName);
     }
 }
