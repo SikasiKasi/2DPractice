@@ -22,8 +22,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y > 6.5){
-            transform.Translate(0, this.speed * Time.deltaTime, 0);
+        transform.Translate(0, this.speed * Time.deltaTime, 0);
+        
+        if(transform.position.y < -8)
+        {
+            Destroy(gameObject);
         }
     }
 

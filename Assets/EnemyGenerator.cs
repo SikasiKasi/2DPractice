@@ -12,7 +12,7 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenEnemy();
+        InvokeRepeating("GenEnemy", 1, 5);
     }
 
     // Update is called once per frame
@@ -23,24 +23,17 @@ public class EnemyGenerator : MonoBehaviour
 
     void GenEnemy() 
     {
-        //撃破数で管理
-        switch(counter){
-            case 0:
-                //Instantiate(EnemyPrefab, new Vector3(0, 9, 0), Quaternion.Euler(0f, 0f, 180f));
-                GameObject o = Instantiate(EnemyPrefab);
-                //GetComprnentでEnemyのスクリプト取得
-                Enemy enemy = o.GetComponent<Enemy>();
-                //SetUp(フィールドのbulletManagerにセットするだけ)を呼び出し
-                enemy.SetUp(bulletManager);
-                enemy.SetLayer("Enemy");
-                //出現位置調整
-                enemy.transform.position = new Vector3(0, 9, 0);
-                enemy.transform.eulerAngles = new Vector3(0, 0, 180);
-                break;
-            default:
-                break;
-        }
+        GameObject o = Instantiate(EnemyPrefab);
         
+        //GetComprnentでEnemyのスクリプト取得
+        Enemy enemy = o.GetComponent<Enemy>();
         
+        //SetUp(フィールドのbulletManagerにセットするだけ)を呼び出し
+        enemy.SetUp(bulletManager);
+        enemy.SetLayer("Enemy");
+        
+        //出現位置調整
+        enemy.transform.position = new Vector3(Random.Range(-3, 3), 9, 0);
+        enemy.transform.eulerAngles = new Vector3(0, 0, 180);
     }
 }
